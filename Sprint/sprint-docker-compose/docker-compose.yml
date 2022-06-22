@@ -1,0 +1,20 @@
+# docker compose 파일을 완성하고
+# http://localhost로 접속했을 때 서버로부터 온 메시지가 표시되게 만드세요
+version: "3.0"
+services:
+  frontend:
+    build: frontend
+    image: jwkims/frontend:1.0
+    ports:
+      - target: 80
+        published: 80
+        x-aws-protocol: http
+    depends_on:
+      - backend
+  backend:
+    build: backend
+    image: jwkims/backend:1.0
+    ports:
+      - target: 3333
+        published: 3333
+        x-aws-protocol: http

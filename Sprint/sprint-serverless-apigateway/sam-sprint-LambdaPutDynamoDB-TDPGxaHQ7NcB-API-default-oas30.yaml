@@ -1,0 +1,38 @@
+openapi: "3.0.1"
+info:
+  title: "sam-sprint-LambdaPutDynamoDB-TDPGxaHQ7NcB-API"
+  description: "Created by AWS Lambda"
+  version: "2022-04-13T04:51:17Z"
+servers:
+- url: "https://blxpo5jfo5.execute-api.ap-northeast-2.amazonaws.com/{basePath}"
+  variables:
+    basePath:
+      default: "/default"
+paths:
+  /sam-sprint-LambdaPutDynamoDB-TDPGxaHQ7NcB:
+    post:
+      responses:
+        "200":
+          description: "200 response"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Empty"
+      security:
+      - auth123: []
+      - api_key: []
+components:
+  schemas:
+    Empty:
+      title: "Empty Schema"
+      type: "object"
+  securitySchemes:
+    api_key:
+      type: "apiKey"
+      name: "x-api-key"
+      in: "header"
+    auth123:
+      type: "apiKey"
+      name: "authorizationToken"
+      in: "header"
+      x-amazon-apigateway-authtype: "custom"

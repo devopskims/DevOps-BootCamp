@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cozserver-deployment
+  labels:
+    app: cozserver
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: cozserver
+  template:
+    # 여기서부터 파드 템플릿이다
+    metadata:
+      labels:
+        app: cozserver
+    spec:
+      containers:
+      - name: cozserver-deployment
+        image: sebcontents/cozserver:2.0
+        ports:
+        - containerPort: 8080
+    # 여기까지 파드 템플릿이다

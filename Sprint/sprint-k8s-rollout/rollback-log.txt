@@ -1,0 +1,23 @@
+$ 1번입력
+ kubectl rollout history deployment cozserver-deploymentent
+ deployment.apps/cozserver-deployment
+
+
+REVISION  CHANGE-CAUSE
+1         kubectl apply --filename=cozserver-deployment-v1.yaml --record=true
+2         kubectl apply --filename=cozserver-deployment-v2.yaml --record=true
+3         kubectl apply --filename=cozserver-deployment-v3.yaml --record=true
+
+$ 2번입력
+kubectl rollout undo deployment cozserver-deployment
+deployment.apps/cozserver-deployment rolled back
+
+
+$ 3번입력
+ kubectl rollout history deployment cozserver-deployment        
+deployment.apps/cozserver-deployment
+
+REVISION  CHANGE-CAUSE
+1         kubectl apply --filename=cozserver-deployment-v1.yaml --record=true
+2         kubectl apply --filename=cozserver-deployment-v3.yaml --record=true
+3         kubectl apply --filename=cozserver-deployment-v2.yaml --record=true
